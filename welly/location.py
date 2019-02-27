@@ -94,14 +94,14 @@ class Location(object):
                                             funcs=funcs)
         return cls(params)
 
-    def add_deviation(self, dev, td=None):
+    def add_deviation(self, dev, td=None, method=None):
         """
         Add a deviation survey to this instance, and try to compute a position
         log from it.
         """
         self.deviation = dev
         try:
-            self.compute_position_log(td=td)
+            self.compute_position_log(td=td, method=method)
         except:
             self.position = None
         return
